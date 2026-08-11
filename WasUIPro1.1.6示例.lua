@@ -58,10 +58,14 @@ local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "la
 
 -- 绑定在Category上的控件 用于折叠功能
 basicCategory:Button({
-    Text = "普通按钮",
-    Icon = "play",
+    Text = "召唤TIV2 2009",
+    Icon = "car",
     Tooltip = "点击触发通知",
     Callback = function()
+        local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+              "TIV 2 2009"
+)
         WasUIPro:Notify({ Title = "按钮", Content = "你点击了按钮", Duration = 2 })
     end
 })
