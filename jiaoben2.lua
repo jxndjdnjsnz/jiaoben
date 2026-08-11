@@ -71,50 +71,50 @@ local function createButton(yPos, name, baseColor)
 	btn.TextColor3 = Color3.new(1,1,1)
 	btn.Font = Enum.Font.Gotham
 	btn.TextSize = 15
-	btn.BorderSizePixel = 1
-	btn.BorderColor3 = Color3.new(0.5,0.5,0.5)
-	btn.AutoLocalize = false
-	btn.Parent = MainFrame
+btn。边框像素=1
+btn .BorderColor3 = Color3.new(0.5,0.5,0.5)
+btn .自动本地化=错误的
+btn .父=大型机
 
-	btn.MouseEnter:Connect(function()
-		TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = baseColor * 1.2}):Play()
-	end)
-	btn.MouseLeave:Connect(function()
-		TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = baseColor}):Play()
-	end)
-	return btn
-end
+btn .MouseEnter:Connect(功能()
+TweenService:Create(btn，TweenInfo.new(0.15)，{BackgroundColor3 = baseColor *1.2}):播放()
+	结束)
+btn .鼠标离开：连接（功能()
+TweenService:Create(btn，TweenInfo.new(0.15)，{背景色3=基色}):播放()
+	结束)
+返回btn
+结束
 
-local Button1 = createButton(45, "功能一", Color3.new(0.18, 0.35, 0.6))
-local Button2 = createButton(105, "功能二", Color3.new(0.2, 0.45, 0.25))
-local Button3 = createButton(165, "功能三", Color3.new(0.55, 0.3, 0.15))
+当地的Button1 = createButton(45, "功能一"，Color3.new(0.18, 0.35, 0.6))
+当地的Button2 = createButton(105, "功能二"，Color3.new(0.2, 0.45, 0.25))
+当地的Button3 = createButton(165, "功能三"，Color3.new(0.55, 0.3, 0.15))
 
-local SpawnCarBtn = createButton(225, "生成载具 TIV 2 2009", Color3.new(0.15,0.38,0.36))
-local SpawnCarBtn = createButton(225, "生成载具MDS", Color3.new(0.90,0.38,0.36))
+当地的SpawnCarBtn = createButton(225, "生成载具TIV 2 2009 "，Color3.new(0.15,0.38,0.36))
+当地的SpawnCarBtn = createButton(285, "生成载具MDS”，Color3.new(0.90，0.38，0.36))
 
-Button1.MouseButton1Click:Connect(function()
-	print("【触发】功能一")
-end)
-Button2.MouseButton1Click:Connect(function()
-	print("【触发】功能二")
-end)
-Button3.MouseButton1Click:Connect(function()
-	print("【触发】功能三")
-end)
+按钮1。鼠标按钮1点击:连接(功能()
+打印("【触发】功能一")
+结束)
+按钮2。鼠标按钮1点击:连接(功能()
+打印("【触发】功能二")
+结束)
+按钮3。鼠标按钮1点击:连接(功能()
+打印("【触发】功能三")
+结束)
 
 
-SpawnCarBtn.MouseButton1Click:Connect(function()
-local Event = game:GetService("ReplicatedStorage").SpawnCar
-Event:FireServer(
-    "TIV 2 2009"
+SpawnCarBtn .鼠标按钮1点击:连接(功能()
+当地的Event = game:GetService("复制存储").产卵车
+事件:FireServer(
+    " 2009年第二季电视节目"
 )
-	print("已发送生成载具请求：TIV 2 2009")
-end)
-local Verified = false
+打印("已发送生成载具请求:TIV 2 2009 ")
+结束)
+当地的已验证=错误的
 
-local isMinimized = false
-local originalFrameHeight = 390
-local minimizedHeight = 32
+当地的最小化=错误的
+当地的originalFrameHeight =390
+当地的最小化高度=32
 
 SpawnCarBtn.MouseButton1Click:Connect(function()
 local Event = game:GetService("ReplicatedStorage").SpawnCar
