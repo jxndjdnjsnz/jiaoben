@@ -32,7 +32,7 @@ local TitleText = Instance.new("TextLabel")
 TitleText.Size = UDim2.new(1, -70, 1, 0)
 TitleText.Position = UDim2.new(0, 10, 0, 0)
 TitleText.BackgroundTransparency = 1
-TitleText.Text = "功能控制面板"
+TitleText.Text = "twisted X"
 TitleText.TextColor3 = Color3.new(1,1,1)
 TitleText.Font = Enum.Font.GothamBold
 TitleText.TextSize = 14
@@ -90,6 +90,7 @@ local Button2 = createButton(105, "功能二", Color3.new(0.2, 0.45, 0.25))
 local Button3 = createButton(165, "功能三", Color3.new(0.55, 0.3, 0.15))
 
 local SpawnCarBtn = createButton(225, "生成载具 TIV 2 2009", Color3.new(0.15,0.38,0.36))
+local SpawnCarBtn = createButton(225, "生成载具MDS", Color3.new(0.90,0.38,0.36))
 
 Button1.MouseButton1Click:Connect(function()
 	print("【触发】功能一")
@@ -109,10 +110,24 @@ Event:FireServer(
 )
 	print("已发送生成载具请求：TIV 2 2009")
 end)
+local Verified = false
 
 local isMinimized = false
 local originalFrameHeight = 390
 local minimizedHeight = 32
+
+SpawnCarBtn.MouseButton1Click:Connect(function()
+local Event = game:GetService("ReplicatedStorage").SpawnCar
+Event:FireServer(
+    "MDS"
+)
+	print("已发送生成载具请求：MDS")
+end)
+local Verified = false
+local isMinimized = false
+local originalFrameHeight = 390
+local minimizedHeight = 32
+
 
 MinBtn.MouseButton1Click:Connect(function()
 	isMinimized = not isMinimized
@@ -153,4 +168,72 @@ UserInputService.InputEnded:Connect(function(input)
 		dragging = false
  	end
  end)
+local KeyContainer = Instance.new("Frame")
+KeyContainer.Size = UDim2.new(0.9,0,0,90)
+KeyContainer.Position = UDim2.new(0.05,0,0,20)
+KeyContainer.BackgroundColor3 = Color3.fromRGB(40,40,50)
+KeyContainer.Parent = ScrollingFrame
+
+local KeyLabel = Instance.new("TextLabel")
+KeyLabel.Size = UDim2.new(1,0,0,24)
+KeyLabel.Position = UDim2.new(0,0,0,5)
+KeyLabel.BackgroundTransparency = 1
+KeyLabel.Text = "请输入卡密:"
+KeyLabel.TextColor3 = Color3.new(1,1,1)
+KeyLabel.Font = Enum.Font.Gotham
+KeyLabel.TextSize = 13
+KeyLabel.Parent = KeyContainer
+
+local KeyBox = Instance.new("TextBox")
+KeyBox.Size = UDim2.new(0.9,0,0,28)
+KeyBox.Position = UDim2.new(0.05,0,0,30)
+KeyBox.BackgroundColor3 = Color3.fromRGB(22,22,28)
+KeyBox.PlaceholderText = "在此输入密钥"
+KeyBox.Text = ""
+KeyBox.TextColor3 = Color3.new(1,1,1)
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.TextSize = 13
+KeyBox.ClearTextOnFocus = false
+KeyBox.Parent = KeyContainer
+
+local SubmitBtn = Instance.new("TextButton")
+SubmitBtn.Size = UDim2.new(0.6,0,0,30)
+SubmitBtn.Position = UDim2.new(0.2,0,0,65)
+SubmitBtn.BackgroundColor3 = Color3.fromRGB(50,120,220)
+SubmitBtn.Text = "验证卡密"
+SubmitBtn.TextColor3 = Color3.new(1,1,1)
+SubmitBtn.Font = Enum.Font.GothamBold
+SubmitBtn.TextSize = 13
+SubmitBtn.Parent = KeyContainer
+
+local StatusText = Instance.new("TextLabel")
+StatusText.Size = UDim2.new(0.9,0,0,22)
+StatusText.Position = UDim2.new(0.05,0,0,110)
+StatusText.BackgroundTransparency = 1
+StatusText.Text = "等待验证..."
+StatusText.TextColor3 = Color3.fromRGB(180,180,180)
+StatusText.Font = Enum.Font.Gotham
+StatusText.TextSize = 12
+StatusText.Parent = ScrollingFrame
+
+local Separator = Instance.new("Frame")
+Separator.Size = UDim2.new(0.9,0,0,2)
+Separator.Position = UDim2.new(0.05,0,0,140)
+Separator.BackgroundColor3 = Color3.fromRGB(60,60,70)
+Separator.Parent = ScrollingFrame
+
+SubmitBtn.MouseButton1Click:Connect(function()
+	local inputKey = KeyBox.Text
+	if inputKey == CORRECT_KEY then
+		StatusText.Text = "验证成功！功能已解锁"
+		StatusText.TextColor3 = Color3.fromRGB(80,220,120)
+		Verified = true
+		SpawnMDS.Visible = true
+		SpawnTIV2.Visible = true
+	else
+		StatusText.Text = "卡密错误，请重试"
+		StatusText.TextColor3 = Color3.fromRGB(220,80,80)
+	end
+end)
+
  print("✅ UI加载完成 | 电脑/手机触屏均可拖拽顶部标题栏")
