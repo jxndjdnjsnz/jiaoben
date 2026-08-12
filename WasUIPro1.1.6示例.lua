@@ -18,7 +18,7 @@ local mainWindow = WasUIPro:CreateWindow({
     GroupCopy = "1070641947", 
     SnowEnabled = true,
     Background = "",
-    Folder = "WasUIPro_示例配置",
+    Folder = "WasUIPro_JB",
     TitleTag = {
         { text = "Demo", backgroundColor = Color3.fromRGB(0,152,211), textColor = Color3.fromRGB(255,255,255) },
         { text = "NEW", backgroundColor = Color3.fromRGB(255,80,80), textColor = Color3.fromRGB(255,255,255) }
@@ -43,10 +43,10 @@ task.spawn(function()
         confirmText = "开始体验",
         onConfirm = function()
              local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
-             WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 2 })
-             WasUIPro:Notify({ Title = "小天死妈", Content = "已经把小天的浮木杀了", Duration = 2 })
-             WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 2 })
-             WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 2 })
+             WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
+             WasUIPro:Notify({ Title = "小天死妈", Content = "已经把小天的浮木杀了", Duration = 20 })
+             WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
+             WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
         end
     })
 end)
@@ -55,23 +55,33 @@ local basicTab = mainWindow:Tab({ Title = "基础控件" })
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
 
 basicCategory:Button({
-    Text = "其他脚本",
+    Text = "Rb脚本",
     Icon = "play",
-    Tooltip = "己切换其他脚本",
+    Tooltip = "切换Rb脚本",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E6%B1%89%E5%8C%96%E5%A2%A8%E6%B0%B4Ringta.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Yungengxin/roblox/refs/heads/main/Rb-Hub"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
 asicCategory:Button({
-    Text = "其他脚本2",
+    Text = "BS黑洞中心脚本",
     Icon = "play",
-    Tooltip = "己切换其他脚本",
+    Tooltip = "切换BS脚本",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/VexonHub%E6%B1%89%E5%8C%96.txt"))()
+        loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
+asicCategory:Button({
+    Text = "TX脚本",
+    Icon = "play",
+    Tooltip = "切换TX脚本",
+    Callback = function()
+        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+})
+
 basicCategory:Button({
     Text = "召唤TIV2 2009",
     Icon = "car",
