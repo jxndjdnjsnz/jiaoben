@@ -42,7 +42,7 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
+             --local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
