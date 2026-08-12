@@ -15,9 +15,9 @@ local mainWindow = WasUIPro:CreateWindow({
     RainbowMode = "流动",
     DialogTitle = "确认关闭窗口",
     GroupText = "加入交流群",
-    GroupCopy = "123456789", 
+    GroupCopy = "1070641947", 
     SnowEnabled = true,
-    Background = "rbxassetid://1234567890",
+    Background = "https://qun.qq.com/universal-share/share?ac=1&authKey=kcScr28o93SlfkdtYL9aLLh0PzHxSteBSSpFLIX1e8dMuyFfN8GTJQvsk/8H59X2&busi_data=eyJncm91cENvZGUiOiIxMDcwNjQxOTQ3IiwidG9rZW4iOiJ3WkdiOVAwNlU5Rk1Ea1lCSUJSMzdSTTJ6c2xueGtXTlRUYXdhQWZuM2h5QUc4UkRTUHo5MGtCM2o0U3g0ZUJnIiwidWluIjoiMzU4MTkzODYxOCJ9&data=uG0jnOWSnrmGmttsS40EZqvwORt2h3A3p2tpK4VgHdLwE8XRitJ5iFXc_f72Oaky6_6KUVvNrtxmpHbOljpLEA&svctype=4&tempid=h5_group_info",
     Folder = "WasUIPro_示例配置",
     TitleTag = {
         { text = "Demo", backgroundColor = Color3.fromRGB(0,152,211), textColor = Color3.fromRGB(255,255,255) },
@@ -56,9 +56,21 @@ basicCategory:Button({
     Icon = "car",
     Tooltip = "已召唤TIV2",
     Callback = function()
-        local Event = game:GetService("ReplicatedStorage").SpawnCar
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
         Event:FireServer(
-              "TIV 2 2009"
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+             "TIV 2 2009"
 )
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了TIV2 2009", Duration = 2 })
     end
@@ -68,6 +80,13 @@ basicCategory:Button({
     Icon = "car",
     Tooltip = "已召唤MDS",
     Callback = function()
+        local function GetNil(Name, DebugId)
+	    for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
         local Event = game:GetService("ReplicatedStorage").SpawnCar
         Event:FireServer(
               "MDS"
@@ -75,6 +94,42 @@ basicCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
     end
 })
+basicCategory:Button({
+    Text = "召唤MDS",
+    Icon = "car",
+    Tooltip = "已召唤MDS",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	    for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+        local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+              "MDS"
+)
+        WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
+    end
+})
+basicCategory:NumberBox({
+    Text = "修改 CAPE 气象数值",
+    Placeholder = "输入CAPE数值",
+    Min = 0,
+    Max = 10000,
+    Default = 1500,
+    Callback = function(num)
+        pcall(function()
+            local targetObj = game:GetService("ReplicatedStorage"):WaitForChild("Weather State"):WaitForChild("MoonVFXAssets"):WaitForChild("CAPE")
+            targetObj.Value = num
+            WasUIPro:Notify({ Title = "气象修改成功", Content = "CAPE 当前值："..tostring(num), Duration = 2 })
+        end, function(err)
+            WasUIPro:Notify({ Title = "修改失败", Content = err, Duration = 3 })
+        end)
+    end
+})
+
 
 basicCategory:Toggle({
     Title = "自动拾取",
