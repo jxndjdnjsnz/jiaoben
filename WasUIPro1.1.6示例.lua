@@ -113,23 +113,6 @@ end
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
     end
 })
-basicCategory:NumberBox({
-    Text = "修改 CAPE 气象数值",
-    Placeholder = "输入CAPE数值",
-    Min = 0,
-    Max = 10000,
-    Default = 1500,
-    Callback = function(num)
-        pcall(function()
-            local targetObj = game:GetService("ReplicatedStorage"):WaitForChild("Weather State"):WaitForChild("MoonVFXAssets"):WaitForChild("CAPE")
-            targetObj.Value = num
-            WasUIPro:Notify({ Title = "气象修改成功", Content = "CAPE 当前值："..tostring(num), Duration = 2 })
-        end, function(err)
-            WasUIPro:Notify({ Title = "修改失败", Content = err, Duration = 3 })
-        end)
-    end
-})
-
 
 basicCategory:Toggle({
     Title = "自动拾取",
