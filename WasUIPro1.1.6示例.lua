@@ -139,18 +139,6 @@ basicCategory:Toggle({
         WasUIPro:Notify({ Title = "自动拾取", Content = state and "已开启" or "已关闭", Duration = 1 })
     end
 })
-basicCategory:Toggle({
-    Title = "透视模式",
-    Value = false,
-    FeatureName = "toshi",
-    Icon = "shield",
-    ConfigKey = "god_mode",
-    Tooltip = "透视",
-    Callback = function(state)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
-        WasUIPro:Notify({ Title = "透视", Content = state and "已开启" or "已关闭", Duration = 1 })
-    end
-})
 
 local volumeSlider = basicCategory:Slider({
     Title = "音量调节",
