@@ -42,7 +42,7 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             --local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
+             local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
@@ -59,24 +59,6 @@ basicCategory:Button({
     Tooltip = "切换Rb脚本",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Yungengxin/roblox/refs/heads/main/Rb-Hub"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
-        end
-})
-asicCategory:Button({
-    Text = "BS黑洞中心脚本",
-    Icon = "play",
-    Tooltip = "切换BS脚本",
-    Callback = function()
-        loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
-        end
-})
-asicCategory:Button({
-    Text = "TX脚本",
-    Icon = "play",
-    Tooltip = "切换TX脚本",
-    Callback = function()
-        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
