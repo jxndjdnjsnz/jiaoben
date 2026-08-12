@@ -42,7 +42,7 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             --local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
+             local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 2 })
              WasUIPro:Notify({ Title = "小天死妈", Content = "已经把小天的浮木杀了", Duration = 2 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 2 })
@@ -455,7 +455,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "透视",
     Callback = function(state)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
+        
         WasUIPro:Notify({ Title = "FeatureB", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
@@ -467,7 +467,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "装逼让你飞起来",
     Callback = function(state)
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/3490168468w-dotcom/GND-HUB/main/Fly%20V3%20GND"))()
+         
         WasUIPro:Notify({ Title = "FeatureC", Content = state and "已开启飞行" or "已关闭飞行", Duration = 1 })
     end
 })
@@ -479,7 +479,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "权限",
     Callback = function(state)
-        loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()end)
+        
         WasUIPro:Notify({ Title = "FeatureD", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
