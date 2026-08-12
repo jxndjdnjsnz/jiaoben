@@ -2,15 +2,10 @@ local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-R
 
 local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
---[[
-    设置默认项 一般用于用户端改变界面调用
-    正常通过CreateWindow中设置即可
-]]
+
 WasUIPro:SetDefaultTheme("Dark")
 WasUIPro:SetDefaultRainbowMode("流动")
 WasUIPro:SetLanguage("中文") 
--- 默认不启用英文,一般无需设置该项目
--- 默认为Dark主题
 
 local mainWindow = WasUIPro:CreateWindow({
     Title = "WasUIPro 完整演示",
@@ -20,15 +15,15 @@ local mainWindow = WasUIPro:CreateWindow({
     RainbowMode = "流动",
     DialogTitle = "确认关闭窗口",
     GroupText = "加入交流群",
-    GroupCopy = "123456789", --在此输入你的群聊加入链接等
+    GroupCopy = "123456789", 
     SnowEnabled = true,
-    Background = "rbxassetid://1234567890", --设置背景链接 支持rbx资产/Url链接
+    Background = "rbxassetid://1234567890",
     Folder = "WasUIPro_示例配置",
     TitleTag = {
         { text = "Demo", backgroundColor = Color3.fromRGB(0,152,211), textColor = Color3.fromRGB(255,255,255) },
         { text = "NEW", backgroundColor = Color3.fromRGB(255,80,80), textColor = Color3.fromRGB(255,255,255) }
-    }, -- 添加titletag,最多两个
-    FrameColor = nil,-- 传入nil默认彩虹流动,你可以传入多组颜色到边框中,但不会流动(我不会做)
+    },
+    FrameColor = nil,
 --[[
     {
     Color3.fromRGB(255, 100, 100),
@@ -37,7 +32,6 @@ local mainWindow = WasUIPro:CreateWindow({
     },
     ]]
     FeatureNameColor = {Color3.fromRGB(255, 100, 200), Color3.fromRGB(255, 150, 50)}
-    -- 设置两种颜色以渐变,不设置时默认绿向紫渐变
 })
 
 task.spawn(function()
@@ -47,26 +41,39 @@ task.spawn(function()
         titleIcon = "sparkles",
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
-        onConfirm = function() end --你可以在这里加上功能
+        onConfirm = function()
+             WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 2 })
+             
+        end
     })
 end)
 
--- 创建选项卡
 local basicTab = mainWindow:Tab({ Title = "基础控件" })
---创建Category
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
+local basicCategory = twisted:Category({ Title = "TwistedX(0.15)", IconName = "layout-grid" })
 
--- 绑定在Category上的控件 用于折叠功能
-basicCategory:Button({
+twistedCategory:Button({
     Text = "召唤TIV2 2009",
     Icon = "car",
-    Tooltip = "点击触发通知",
+    Tooltip = "已召唤TIV2",
     Callback = function()
         local Event = game:GetService("ReplicatedStorage").SpawnCar
         Event:FireServer(
               "TIV 2 2009"
 )
-        WasUIPro:Notify({ Title = "按钮", Content = "你点击了按钮", Duration = 2 })
+        WasUIPro:Notify({ Title = "按钮", Content = "你召唤了TIV2 2009", Duration = 2 })
+    end
+})
+twistedCategory:Button({
+    Text = "召唤MDS",
+    Icon = "car",
+    Tooltip = "已召唤MDS",
+    Callback = function()
+        local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+              "MDS"
+)
+        WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
     end
 })
 
@@ -105,7 +112,6 @@ local volumeSlider = basicCategory:Slider({
     end
 })
 
--- 单选的下拉菜单
 basicCategory:Dropdown({
     Title = "武器选择",
     Values = { "剑", "弓", "法杖", "匕首" },
@@ -140,7 +146,6 @@ basicCategory:TextInput({
     end
 })
 
--- 进度条控件 一般用于功能进度可视化
 local expBar = basicCategory:ProgressBar({
     Title = "经验值",
     Min = 0,
@@ -157,7 +162,6 @@ task.spawn(function()
     end
 end)
 
--- 段落控件
 basicTab:Paragraph({
     Title = "关于 WasUIPro",
     Desc = "轻量级 UI 库，支持主题切换、动画效果、配置保存、快捷键",
@@ -228,7 +232,7 @@ local sliderA = sliderCategory:Slider({
     Min = 0,
     Max = 100,
     Default = 30,
-    Step = 0.5 --控制分度值
+    Step = 0.5
 })
 local sliderB = sliderCategory:Slider({
     Title = "控制进度B",
@@ -237,7 +241,7 @@ local sliderB = sliderCategory:Slider({
     Default = 60,
     Step = 1
 })
--- 进度条控件展示
+
 local progressDemo = sliderCategory:ProgressBar({
     Title = "总进度平均值",
     Min = 0,
