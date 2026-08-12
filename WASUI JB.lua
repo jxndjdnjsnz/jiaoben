@@ -53,13 +53,11 @@ end)
 
 local basicTab = mainWindow:Tab({ Title = "基础控件" })
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
-local basicTab = mainsWindow:Tab({ Title = "其他脚本" })
-local basicCategory = basicsTab:Category({ Title = "其他脚本", IconName = "layout-grid" })
 
-basicsCategory:Button({
-    Text = "召唤TIV2 2009",
-    Icon = "car",
-    Tooltip = "已召唤TIV2",
+basicCategory:Button({
+    Text = "切换其他脚本",
+    Icon = "play",
+    Tooltip = "已切换脚本",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E6%B1%89%E5%8C%96%E5%A2%A8%E6%B0%B4Ringta.txt"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
