@@ -16,8 +16,7 @@ local mainWindow = WasUIPro:CreateWindow({
     DialogTitle = "确认关闭窗口",
     GroupText = "加入交流群",
     GroupCopy = "1070641947", 
-    SnowEnabled = true,
-    Background = "https://qun.qq.com/universal-share/share?ac=1&authKey=kcScr28o93SlfkdtYL9aLLh0PzHxSteBSSpFLIX1e8dMuyFfN8GTJQvsk/8H59X2&busi_data=eyJncm91cENvZGUiOiIxMDcwNjQxOTQ3IiwidG9rZW4iOiJ3WkdiOVAwNlU5Rk1Ea1lCSUJSMzdSTTJ6c2xueGtXTlRUYXdhQWZuM2h5QUc4UkRTUHo5MGtCM2o0U3g0ZUJnIiwidWluIjoiMzU4MTkzODYxOCJ9&data=uG0jnOWSnrmGmttsS40EZqvwORt2h3A3p2tpK4VgHdLwE8XRitJ5iFXc_f72Oaky6_6KUVvNrtxmpHbOljpLEA&svctype=4&tempid=h5_group_info",
+    SnowEnabled = "",
     Folder = "WasUIPro_示例配置",
     TitleTag = {
         { text = "Demo", backgroundColor = Color3.fromRGB(0,152,211), textColor = Color3.fromRGB(255,255,255) },
