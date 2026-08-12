@@ -63,6 +63,15 @@ basicCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
+asicCategory:Button({
+    Text = "其他脚本2",
+    Icon = "play",
+    Tooltip = "己切换其他脚本",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/VexonHub%E6%B1%89%E5%8C%96.txt"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+})
 basicCategory:Button({
     Text = "召唤TIV2 2009",
     Icon = "car",
@@ -92,12 +101,16 @@ basicCategory:Button({
     Tooltip = "已召唤MDS",
     Callback = function()
         local function GetNil(Name, DebugId)
-	    for _, Object in getnilinstances() do
+	for _, Object in getnilinstances() do
 		if Object.Name == Name and Object:GetDebugId() == DebugId then
 			return Object
 		end
 	end
 end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
         local Event = game:GetService("ReplicatedStorage").SpawnCar
         Event:FireServer(
               "MDS"
@@ -117,14 +130,15 @@ basicCategory:Toggle({
     end
 })
 basicCategory:Toggle({
-    Title = "无敌模式",
+    Title = "透视模式",
     Value = false,
-    FeatureName = "GodMode",
+    FeatureName = "toshi",
     Icon = "shield",
     ConfigKey = "god_mode",
-    Tooltip = "免疫所有伤害",
+    Tooltip = "透视",
     Callback = function(state)
-        WasUIPro:Notify({ Title = "无敌模式", Content = state and "已开启" or "已关闭", Duration = 1 })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
+        WasUIPro:Notify({ Title = "透视", Content = state and "已开启" or "已关闭", Duration = 1 })
     end
 })
 
@@ -467,7 +481,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "装逼让你飞起来",
     Callback = function(state)
-         
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/jxndjdnjsnz/jiaoben/refs/heads/main/%E9%A3%9E%E8%A1%8C%E8%84%9A%E6%9C%ACV3(%E5%85%A8%E6%B8%B8%E6%88%8F%E9%80%9A%E7%94%A8)%20.lua"))()
         WasUIPro:Notify({ Title = "FeatureC", Content = state and "已开启飞行" or "已关闭飞行", Duration = 1 })
     end
 })
