@@ -44,7 +44,6 @@ task.spawn(function()
         onConfirm = function()
              local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
-             WasUIPro:Notify({ Title = "小天死妈", Content = "已经把小天的浮木杀了", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
         end
@@ -479,7 +478,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "装逼让你飞起来",
     Callback = function(state)
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/jxndjdnjsnz/jiaoben/refs/heads/main/%E9%A3%9E%E8%A1%8C%E8%84%9A%E6%9C%ACV3(%E5%85%A8%E6%B8%B8%E6%88%8F%E9%80%9A%E7%94%A8)%20.lua"))()
+         
         WasUIPro:Notify({ Title = "FeatureC", Content = state and "已开启飞行" or "已关闭飞行", Duration = 1 })
     end
 })
