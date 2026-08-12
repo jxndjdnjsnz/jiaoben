@@ -50,9 +50,8 @@ end)
 
 local basicTab = mainWindow:Tab({ Title = "基础控件" })
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
-local basicCategory = twisted:Category({ Title = "TwistedX(0.15)", IconName = "layout-grid" })
 
-twistedCategory:Button({
+basicCategory:Button({
     Text = "召唤TIV2 2009",
     Icon = "car",
     Tooltip = "已召唤TIV2",
@@ -64,7 +63,7 @@ twistedCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了TIV2 2009", Duration = 2 })
     end
 })
-twistedCategory:Button({
+basicCategory:Button({
     Text = "召唤MDS",
     Icon = "car",
     Tooltip = "已召唤MDS",
