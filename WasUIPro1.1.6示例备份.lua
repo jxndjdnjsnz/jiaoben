@@ -1,5 +1,5 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
-local Anti-AFK = loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
+local WasUIpro = loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
 local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
@@ -42,9 +42,9 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
+             WasUIPro:Notify({ Title = "作者", Content = "jxndjdnjsnz", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
         end
     })
@@ -451,6 +451,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "FeatureA 演示",
     Callback = function(state)
+    
         WasUIPro:Notify({ Title = "FeatureA", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
@@ -468,26 +469,26 @@ extraCategory:Toggle({
 })
 
 extraCategory:Toggle({
-    Title = "飞行V3",
+    Title = "",
     Value = false,
     FeatureName = "FeatureC",
     Icon = "circle",
     Tooltip = "装逼让你飞起来",
     Callback = function(state)
-         
+        
         WasUIPro:Notify({ Title = "FeatureC", Content = state and "已开启飞行" or "已关闭飞行", Duration = 1 })
     end
 })
 
 extraCategory:Toggle({
-    Title = "获得管理员权限",
+    Title = "挂机",
     Value = true,
     FeatureName = "FeatureD",
     Icon = "circle",
-    Tooltip = "权限",
+    Tooltip = "挂机",
     Callback = function(state)
         
-        WasUIPro:Notify({ Title = "FeatureD", Content = state and "开启" or "关闭", Duration = 1 })
+        WasUIPro:Notify({ Title = "FeatureD", Content = state and "已开启防挂机" or "已关闭防挂机", Duration = 1 })
     end
 })
 
