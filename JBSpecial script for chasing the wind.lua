@@ -1,5 +1,10 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
-local RevenantLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
+local VirtualUserService = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    VirtualUserService:CaptureMouse()
+    VirtualUserService:Click2(Vector2.new())
+    WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
+end)
 local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
