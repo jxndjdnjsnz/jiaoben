@@ -1,5 +1,10 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
-local WasUIpro = loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
+local VirtualUserService = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    VirtualUserService:CaptureMouse()
+    VirtualUserService:Click2(Vector2.new())
+    WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
+end)
 local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
@@ -8,9 +13,9 @@ WasUIPro:SetDefaultRainbowMode("流动")
 WasUIPro:SetLanguage("中文") 
 
 local mainWindow = WasUIPro:CreateWindow({
-    Title = "WasUIPro 完整演示",
+    Title = "WasUIPro JB",
     WelcomeText = "展示所有控件及动态功能",
-    MinimizedText = "WasUIPro",
+    MinimizedText = "JB",
     Theme = "Dark",
     RainbowMode = "流动",
     DialogTitle = "确认关闭窗口",
@@ -45,7 +50,6 @@ task.spawn(function()
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "作者", Content = "jxndjdnjsnz", Duration = 20 })
-             WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
         end
     })
 end)
@@ -123,61 +127,46 @@ end
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了MDS", Duration = 2 })
     end
 })
-basicCategory:Toggle({
-    Title = "自动拾取",
-    Value = false,
-    FeatureName = "AutoLoot",
-    Icon = "package",
-    ConfigKey = "auto_loot",
-    Tooltip = "开启后自动拾取物品",
-    Callback = function(state)
-        WasUIPro:Notify({ Title = "自动拾取", Content = state and "已开启" or "已关闭", Duration = 1 })
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
+    end
+})
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
+    end
+})
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
     end
 })
 
-local volumeSlider = basicCategory:Slider({
-    Title = "音量调节",
-    Min = 0,
-    Max = 100,
-    Default = 50,
-    Ticks = 10,
-    ConfigKey = "volume",
-    Callback = function(value)
-        print("音量", value)
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
     end
 })
 
-basicCategory:Dropdown({
-    Title = "武器选择",
-    Values = { "剑", "弓", "法杖", "匕首" },
-    Value = "剑",
-    Multi = false,
-    ConfigKey = "weapon",
-    Callback = function(selected)
-        WasUIPro:Notify({ Title = "武器", Content = "当前武器: " .. selected, Duration = 1 })
-    end
-})
-
-
-basicCategory:Dropdown({
-    Title = "技能多选",
-    Values = { "火球术", "冰霜新星", "闪现", "治疗术" },
-    Value = { "火球术", "闪现" }, 
-    Multi = true, 
-    ConfigKey = "skills",
-    Callback = function(selected)
-        print("已选技能", table.concat(selected, ", "))
-    end
-})
-
--- 输入框
-basicCategory:TextInput({
-    Title = "玩家昵称",
-    Placeholder = "请输入昵称",
-    Value = "冒险者",
-    ConfigKey = "nickname",
-    Callback = function(text)
-        print("昵称", text)
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
     end
 })
 
@@ -456,17 +445,76 @@ extraCategory:Toggle({
     end
 })
 
+local highlightToggle
 extraCategory:Toggle({
     Title = "透视",
-    Value = true,
+    Value = false,
     FeatureName = "FeatureB",
     Icon = "circle",
     Tooltip = "透视",
     Callback = function(state)
-        loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
-        WasUIPro:Notify({ Title = "FeatureB", Content = state and "开启" or "关闭", Duration = 1 })
+        if state then
+            local Players = game:GetService("Players")
+            local RunService = game:GetService("RunService")
+            local baseHighlight = Instance.new("Highlight")
+            baseHighlight.Name = "Highlight"
+            baseHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            highlightToggle = {}
+            highlightHighlightToggle = baseHighlight
+            highlightToggle.Connections = {}
+
+            local function applyHighlight(player)
+                task.spawn(function()
+                    repeat task.wait() until player.Character
+                    local root = player.Character:WaitForChild("HumanoidRootPart")
+                    if not root:FindFirstChild("Highlight") then
+                        local clone = baseHighlight:Clone()
+                        clone.Parent = root
+                    end
+                end)
+            end
+
+            for _,plr in ipairs(Players:GetPlayers()) do
+                if plr ~= Players.LocalPlayer then
+                    applyHighlight(plr)
+                end
+            end
+
+            table.insert(highlightToggle.Connections, Players.PlayerAdded:Connect(function(p)
+                if p ~= Players.LocalPlayer then
+                    applyHighlight(p)
+                end
+            end))
+
+            table.insert(highlightToggle.Connections, Players.PlayerRemoving:Connect(function(p)
+                if p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+                    local root = p.Character.HumanoidRootPart
+                    if root:FindFirstChild("Highlight") then
+                        root.Highlight:Destroy()
+                    end
+                end
+            end))
+            WasUIPro:Notify({ Title = "透视", Content = "已开启", Duration = 1 })
+        else
+            if highlightToggle then
+                for _,con in ipairs(highlightToggle.Connections) do
+                    con:Disconnect()
+                end
+                for _,plr in ipairs(game:GetService("Players"):GetPlayers()) do
+                    if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                        local root = plr.Character.HumanoidRootPart
+                        if root:FindFirstChild("Highlight") then
+                            root.Highlight:Destroy()
+                        end
+                    end
+                end
+                highlightToggle = nil
+            end
+            WasUIPro:Notify({ Title = "透视", Content = "已关闭", Duration = 1 })
+        end
     end
 })
+
 
 extraCategory:Toggle({
     Title = "",
