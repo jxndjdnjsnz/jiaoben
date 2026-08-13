@@ -54,8 +54,8 @@ task.spawn(function()
     })
 end)
 
-local basicTab = mainWindow:Tab({ Title = "基础控件" })
-local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
+local basicTab = mainWindow:Tab({ Title = "TWISTED X 0.15" })
+local basicCategory = basicTab:Category({ Title = "车辆", IconName = "layout-grid" })
 
 basicCategory:Button({
     Text = "RAXPOL",
@@ -169,222 +169,262 @@ basicCategory:Button({
         
     end
 })
-
-local expBar = basicCategory:ProgressBar({
-    Title = "经验值",
-    Min = 0,
-    Max = 1000,
-    Default = 250,
+basicCategory:Button({
+    Text = "待更新",
+    Icon = "car",
+    Tooltip = "还不知道做啥",
+    Callback = function()
+        
+    end
 })
 
-task.spawn(function()
-    while true do
-        task.wait(3)
-        local newValue = expBar:GetValue() + 50
-        if newValue > 1000 then newValue = 0 end
-        expBar:SetValue(newValue)
-    end
-end)
 
 basicTab:Paragraph({
-    Title = "关于 WasUIPro",
-    Desc = "轻量级 UI 库，支持主题切换、动画效果、配置保存、快捷键",
+    Title = "关于JB",
+    Desc = "jxndjdnjsnz自制",
     Icon = "info"
 })
 
-local advancedTab = mainWindow:Tab({ Title = "高级控件" })
+local advancedTab = mainWindow:Tab({ Title = "其他脚本" })
 
-local advancedCategory = advancedTab:Category({ Title = "高级功能", IconName = "sliders-horizontal" })
+local advancedCategory = advancedTab:Category({ Title = "其他脚本", IconName = "sliders-horizontal" })
 
 advancedCategory:ColorPickerButton({
-    Title = "主题颜色选择",
+    Title = "RB脚本",
     Default = Color3.fromRGB(153, 51, 255),
-    ConfigKey = "theme_color",
+    ConfigKey = "jb",
     Callback = function(color, alpha)
-        WasUIPro:Notify({ Title = "颜色", Content = string.format("RGB: %s", color:ToHex()), Duration = 2 })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Yungengxin/roblox/refs/heads/main/Rb-Hub"))()
     end
 })
 
-advancedCategory:Toggle({
-    Title = "彩虹文字特效",
-    Value = false,
-    FeatureName = "RainbowEffect",
-    ConfigKey = "rainbow_effect",
-    Callback = function(state)
-        WasUIPro:Notify({ Title = "彩虹", Content = state and "特效已开启" or "特效已关闭", Duration = 1 })
+advancedCategory:ColorPickerButton({
+    Title = "皮脚本",
+    Default = Color3.fromRGB(153, 51, 255),
+    ConfigKey = "jb",
+    Callback = function(color, alpha)
+        getgenv().XiaoPi="皮脚本QQ群1002100032" loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))()
     end
 })
 
-advancedCategory:Button({
-    Text = "危险操作",
-    Icon = "alert-triangle",
-    Callback = function()
-        WasUIPro:ShowConfirmDialog({
-            title = "危险操作确认",
-            description = "此操作不可逆，是否继续",
-            confirmText = "确定",
-            cancelText = "取消",
-            onConfirm = function()
-                WasUIPro:Notify({ Title = "执行", Content = "危险操作已执行", Duration = 2 })
-            end
-        })
+advancedCategory:ColorPickerButton({
+    Title = "KG脚本",
+    Default = Color3.fromRGB(153, 51, 255),
+    ConfigKey = "jb",
+    Callback = function(color, alpha)
+        KG_SCRIPT = "张硕制作"
+loadstring(request({Url="https://github.com/ZS-NB/KG/raw/main/张硕.lua"}).Body)()
+-- QQ交流群819104139
     end
 })
-advancedCategory:Button({
-    Text = "显示自定义弹窗",
-    Icon = "message-circle",
-    Callback = function()
-        WasUIPro:ShowPopup({
-            title = "自定义弹窗",
-            titleIcon = "smile",
-            content = "这是一个完全自定义的弹窗，可以包含图标和多个按钮",
-            confirmText = "确认",
-            cancelText = "取消",
-            onConfirm = function()
-                WasUIPro:Notify({ Title = "弹窗", Content = "点击了确认", Duration = 1 })
-            end
-        })
+advancedCategory:ColorPickerButton({
+    Title = "BS黑洞中心脚本",
+    Default = Color3.fromRGB(153, 51, 255),
+    ConfigKey = "jb",
+    Callback = function(color, alpha)
+        loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
     end
 })
-
-local demoSliderTab = mainWindow:Tab({ Title = "滑块联动" })
-
-local sliderCategory = demoSliderTab:Category({ Title = "进度条与滑块联动", IconName = "activity" })
-
-local sliderA = sliderCategory:Slider({
-    Title = "控制进度A",
-    Min = 0,
-    Max = 100,
-    Default = 30,
-    Step = 0.5
-})
-local sliderB = sliderCategory:Slider({
-    Title = "控制进度B",
-    Min = 0,
-    Max = 100,
-    Default = 60,
-    Step = 1
-})
-
-local progressDemo = sliderCategory:ProgressBar({
-    Title = "总进度平均值",
-    Min = 0,
-    Max = 100,
-    Default = 0,
-})
-
-local function updateTotal()
-    local avg = (sliderA.Value + sliderB.Value) / 2
-    progressDemo:SetValue(avg)
-end
-sliderA.Callback = updateTotal
-sliderB.Callback = updateTotal
-updateTotal()
+local demoSliderTab = mainWindow:Tab({ Title = "通用" })
+local sliderCategory = demoSliderTab:Category({ Title = "通用", IconName = "activity" })
 
 sliderCategory:Button({
-    Text = "重置全部",
-    Icon = "refresh-cw",
+    Text = "飞行V3",
+    Icon = "play",
+    Tooltip = "已开启飞行",
     Callback = function()
-        sliderA:SetValue(50)
-        sliderB:SetValue(50)
-        WasUIPro:Notify({ Title = "重置", Content = "已重置", Duration = 1 })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/kongbaNB/9178/refs/heads/main/fly.lua"))()
     end
 })
-
-local dynamicTab = mainWindow:Tab({ Title = "动态演示" })
-
-local dynamicCategory = dynamicTab:Category({ Title = "玩家列表与动态信息", IconName = "users" })
-
-local playerDropdown = nil
+sliderCategory:Button({
+    Text = "待更新",
+    Icon = "play",
+    Tooltip = "",
+    Callback = function()
+        
+    end
+})
+local dynamicTab = mainWindow:Tab({ Title = "终极战场" })
+local dynamicCategory = dynamicTab:Category({ Title = "终极战场", IconName = "users" })
 
 dynamicCategory:Button({
-    Text = "刷新玩家列表",
-    Icon = "refresh-cw",
-    Tooltip = "从服务器获取当前在线玩家",
+    Text = "篡改",
+    Icon = "play",
+    Tooltip = "玩的时候第一先开启这个功能",
     Callback = function()
-        local playerList = Players:GetPlayers()
-        local playerNames = {}
-        for _, plr in ipairs(playerList) do
-            table.insert(playerNames, plr.Name)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/dream77239/ubg-script/refs/heads/main/%E6%8B%A6%E6%88%AA.txt"))()
+    end
+})
+dynamicCategory:Button({
+    Text = "假防",
+    Icon = "play",
+    Tooltip = "关闭功能后，按一次防守即可取消",
+    Value = false
+    Callback = function(state)
+        fakeBlockEnabled = state
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local BlockRemote = ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Combat"):WaitForChild("Block")
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+
+        local function enableBlock()
+            pcall(function()
+                BlockRemote:FireServer(true)
+            end)
         end
-        if #playerNames == 0 then
-            WasUIPro:Notify({ Title = "提示", Content = "当前没有玩家", Duration = 2 })
-            return
+
+        if fakeBlockEnabled then
+            enableBlock()
         end
-        if playerDropdown then
-            local current = playerDropdown.SelectedValue
-            local newDefault = nil
-            for _, name in ipairs(playerNames) do
-                if name == current then
-                    newDefault = current
-                    break
+
+        if not loopRunning then
+            loopRunning = true
+            task.spawn(function()
+                while true do
+                    task.wait(0.01)
+                    if fakeBlockEnabled then
+                        local success, isBlocking = pcall(function()
+                            return character:GetAttribute("IsBlocking")
+                        end)
+                        if success and not isBlocking then
+                            enableBlock()
+                        end
+                    end
                 end
-            end
-            if not newDefault and #playerNames > 0 then
-                newDefault = playerNames[1]
-            end
-            playerDropdown:UpdateOptions(playerNames, newDefault)
+            end)
         end
-        WasUIPro:Notify({ Title = "刷新成功", Content = "共 " .. #playerNames .. " 名玩家", Duration = 2 })
     end
 })
-
-playerDropdown = dynamicCategory:Dropdown({
-    Title = "选择玩家",
-    Values = {},
-    Value = "无",
-    Multi = false,
-    Callback = function(selected)
-        if selected and selected ~= "无" then
-            local player = Players:FindFirstChild(selected)
-            if player then
-                local char = player.Character
-                local pos = char and char:GetPivot() or Vector3.zero
-                local info = string.format("坐标: X=%.1f Y=%.1f Z=%.1f", pos.X, pos.Y, pos.Z)
-                dynamicPara:SetContent(info)
-                dynamicPara:SetTitle("当前玩家 " .. selected)
-            else
-                dynamicPara:SetContent("无法获取玩家信息")
-                dynamicPara:SetTitle("未选中玩家")
-            end
+dynamicCategory:Button({
+    Text = "侧闪无冷却",
+    Icon = "play",
+    Tooltip = "",
+    Value = false
+    Callback = function(state)
+        local dashCooldown = game:GetService("ReplicatedStorage").Settings.Cooldowns.Dash
+        if state then
+            dashCooldown.Value = 1
         else
-            dynamicPara:SetContent("请从下拉菜单选择一个玩家")
-            dynamicPara:SetTitle("未选中玩家")
+            dashCooldown.Value = defaultCooldown
         end
     end
 })
-
-local dynamicPara = dynamicCategory:Paragraph({
-    Title = "未选中玩家",
-    Desc = "请从下拉菜单选择一个玩家",
-    Icon = "user"
-})
+local defaultMeleeCooldown = game:GetService("ReplicatedStorage").Settings.Cooldowns.Melee.Value
 
 dynamicCategory:Button({
-    Text = "随机传送演示",
-    Icon = "send",
-    Tooltip = "模拟传送至随机位置",
-    Callback = function()
-        if not playerDropdown.SelectedValue or playerDropdown.SelectedValue == "无" then
-            WasUIPro:Notify({ Title = "错误", Content = "请先选择玩家", Duration = 2 })
-            return
-        end
-        local targetName = playerDropdown.SelectedValue
-        local targetPlayer = Players:FindFirstChild(targetName)
-        if targetPlayer then
-            local randomX = math.random(-100, 100)
-            local randomZ = math.random(-100, 100)
-            local info = string.format("模拟传送至 X=%.1f Z=%.1f", randomX, randomZ)
-            dynamicPara:SetContent(info)
-            dynamicPara:SetTitle("已传送 " .. targetName)
-            WasUIPro:Notify({ Title = "传送", Content = "已传送至 " .. targetName, Duration = 2 })
+    Text = "近战无冷却",
+    Value = false,
+    Icon = "play",
+    Tooltip = "",
+    Callback = function(state)
+        local meleeCooldown = game:GetService("ReplicatedStorage").Settings.Cooldowns.Melee
+        if state then
+            meleeCooldown.Value = 1
         else
-            dynamicPara:SetContent("玩家不存在，请刷新列表")
-            dynamicPara:SetTitle("传送失败")
+            meleeCooldown.Value = defaultMeleeCooldown
         end
     end
 })
+local defaultUltimateTimer = settings.Multipliers.UltimateTimer.Value
+dynamicCategory:Button({
+    Text = "延长大招时间",
+    Icon = "play",
+    Value = false,
+    Tooltip = "",
+    Callback = function(state)
+        settings.Multipliers.UltimateTimer.Value = state and 100000 or defaultUltimateTimer
+    end
+})
+dynamicCategory:Button({
+    Text = "取消攻击后摇",
+    Value = false,
+    Icon = "play",
+    Tooltip = "",
+    Callback = function(state)
+        settings.Toggles.DisableHitStun.Value = state
+    end
+})
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local wallCombo = ReplicatedStorage.Settings.Cooldowns.WallCombo
+dynamicCategory:Button({
+    Text = "墙打无冷却",
+    Value = false,
+    Icon = "play",
+    Tooltip = "",
+    Callback = function(state)
+        if state then
+            wallCombo.Value = 0
+            print("WallCombo cooldown set to 0")
+        else
+            wallCombo.Value = 100
+            print("WallCombo cooldown reset to 100")
+        end
+    end
+})
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local player = Players.LocalPlayer
 
+local wall = nil
+pcall(function()
+    wall = workspace.Map.Structural.Terrain:GetChildren()[5]:GetChildren()[12]
+end)
+
+if not wall then
+    wall = Instance.new("Part")
+    wall.Parent = workspace
+end
+
+wall.Size = Vector3.new(12,6,2)
+wall.Transparency = 0.6
+wall.Material = Enum.Material.SmoothPlastic
+wall.Anchored = true
+wall.CanCollide = true
+wall.CFrame = wall.CFrame or CFrame.new(0,5,0)
+
+if getconnections then
+    for _, conn in pairs(getconnections(wall.AncestryChanged)) do
+        conn:Disable()
+    end
+end
+
+local mt = getrawmetatable(game)
+setreadonly(mt,false)
+local old = mt.__namecall
+mt.__namecall = newcclosure(function(self, ...)
+    local method = getnamecallmethod()
+    if self == wall and method == "Destroy" then
+        return
+    end
+    return old(self, ...)
+end)
+setreadonly(mt,true)
+
+local followConnection = nil
+dynamicCategory:Button({
+    Text = "随处墙打",
+    Icon = "play",
+    Value = false,
+    Tooltip = "",
+    Callback = function(state)
+        if state then
+            if not followConnection then
+                followConnection = RunService.RenderStepped:Connect(function()
+                    local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                    if hrp then
+                        wall.CFrame = hrp.CFrame * CFrame.new(0,0,-8)
+                    end
+                end)
+            end
+        else
+            if followConnection then
+                followConnection:Disconnect()
+                followConnection = nil
+            end
+        end
+    end
+})
 local styleCategory = dynamicTab:Category({ Title = "段落样式动态切换", IconName = "palette" })
 
 local stylePara = styleCategory:Paragraph({
@@ -445,79 +485,20 @@ extraCategory:Toggle({
     end
 })
 
-local highlightToggle
 extraCategory:Toggle({
-    Title = "透视",
+    Title = "待更新",
     Value = false,
     FeatureName = "FeatureB",
     Icon = "circle",
     Tooltip = "透视",
     Callback = function(state)
-        if state then
-            local Players = game:GetService("Players")
-            local RunService = game:GetService("RunService")
-            local baseHighlight = Instance.new("Highlight")
-            baseHighlight.Name = "Highlight"
-            baseHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-            highlightToggle = {}
-            highlightHighlightToggle = baseHighlight
-            highlightToggle.Connections = {}
-
-            local function applyHighlight(player)
-                task.spawn(function()
-                    repeat task.wait() until player.Character
-                    local root = player.Character:WaitForChild("HumanoidRootPart")
-                    if not root:FindFirstChild("Highlight") then
-                        local clone = baseHighlight:Clone()
-                        clone.Parent = root
-                    end
-                end)
-            end
-
-            for _,plr in ipairs(Players:GetPlayers()) do
-                if plr ~= Players.LocalPlayer then
-                    applyHighlight(plr)
-                end
-            end
-
-            table.insert(highlightToggle.Connections, Players.PlayerAdded:Connect(function(p)
-                if p ~= Players.LocalPlayer then
-                    applyHighlight(p)
-                end
-            end))
-
-            table.insert(highlightToggle.Connections, Players.PlayerRemoving:Connect(function(p)
-                if p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
-                    local root = p.Character.HumanoidRootPart
-                    if root:FindFirstChild("Highlight") then
-                        root.Highlight:Destroy()
-                    end
-                end
-            end))
-            WasUIPro:Notify({ Title = "透视", Content = "已开启", Duration = 1 })
-        else
-            if highlightToggle then
-                for _,con in ipairs(highlightToggle.Connections) do
-                    con:Disconnect()
-                end
-                for _,plr in ipairs(game:GetService("Players"):GetPlayers()) do
-                    if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
-                        local root = plr.Character.HumanoidRootPart
-                        if root:FindFirstChild("Highlight") then
-                            root.Highlight:Destroy()
-                        end
-                    end
-                end
-                highlightToggle = nil
-            end
-            WasUIPro:Notify({ Title = "透视", Content = "已关闭", Duration = 1 })
-        end
+        
     end
 })
 
 
 extraCategory:Toggle({
-    Title = "",
+    Title = "待更新",
     Value = false,
     FeatureName = "FeatureC",
     Icon = "circle",
@@ -529,7 +510,7 @@ extraCategory:Toggle({
 })
 
 extraCategory:Toggle({
-    Title = "挂机",
+    Title = "待更新",
     Value = true,
     FeatureName = "FeatureD",
     Icon = "circle",
