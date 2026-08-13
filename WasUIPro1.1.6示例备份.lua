@@ -1,5 +1,5 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
-
+local Anti-AFK = loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
 local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
@@ -54,12 +54,26 @@ local basicTab = mainWindow:Tab({ Title = "基础控件" })
 local basicCategory = basicTab:Category({ Title = "常用控件", IconName = "layout-grid" })
 
 basicCategory:Button({
-    Text = "Rb脚本",
-    Icon = "play",
-    Tooltip = "切换Rb脚本",
+    Text = "RAXPOL",
+    Icon = "car",
+    Tooltip = "已召唤RAXPOL",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Yungengxin/roblox/refs/heads/main/Rb-Hub"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+             "raxpol"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤RAXPOL", Duration = 2 })
         end
 })
 
@@ -448,7 +462,7 @@ extraCategory:Toggle({
     Icon = "circle",
     Tooltip = "透视",
     Callback = function(state)
-        
+        loadstring(game:HttpGet("https://pastefy.app/LE2hzECZ/raw"))()
         WasUIPro:Notify({ Title = "FeatureB", Content = state and "开启" or "关闭", Duration = 1 })
     end
 })
