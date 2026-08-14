@@ -128,16 +128,7 @@ end
     end
 })
 
-basicTab:Paragraph({
-    Title = "关于 WasJB",
-    Desc = "专门做Twisted X 0.15,作者是jxndjdnjsnz",
-    Icon = "info"
-})
-
-local advancedTab = mainWindow:Tab({ Title = "其他脚本" })
-local advancedCategory = advancedTab:Category({ Title = "其他脚本", IconName = "sliders-horizontal" })
-
-advancedCategory:Button({
+scriptCategory:Button({
     Text = "Rb脚本",
     Icon = "play",
     Tooltip = "切换Rb脚本",
@@ -146,7 +137,7 @@ advancedCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
-advancedCategory:Button({
+scriptadvancedCategory:Button({
     Text = "BS黑洞中心脚本",
     Icon = "play",
     Tooltip = "切换BS脚本",
@@ -155,5 +146,9 @@ advancedCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
-
+basicTab:Paragraph({
+    Title = "关于 WasJB",
+    Desc = "专门做Twisted X 0.15,作者是jxndjdnjsnz",
+    Icon = "info"
+})
 WasUIPro:Notify({ Title = "初始化", Content = "WasUIPro 示例加载完成", Duration = 4 })
