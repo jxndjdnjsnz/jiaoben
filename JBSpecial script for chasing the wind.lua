@@ -41,7 +41,7 @@ task.spawn(function()
         titleIcon = "sparkles",
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
-        onConfirm = function(state)
+        onConfirm = function()
              game:GetService("Players").LocalPlayer.Idled:Connect(function()
                   VirtualUserService:CaptureMouse()
                   VirtualUserService:Click2(Vector2.new() 
