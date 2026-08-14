@@ -1,6 +1,10 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
 local VirtualUserService = game:GetService("VirtualUser")
 local Uis = game:GetService("UserInputService")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+     VirtualUserService:CaptureMouse()
+     VirtualUserService:Click2(Vector2.new() 
+end)
 local Players = game:GetService("Players")
 
 WasUIPro:SetDefaultTheme("Dark")
@@ -42,10 +46,7 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             game:GetService("Players").LocalPlayer.Idled:Connect(function()
-                  VirtualUserService:CaptureMouse()
-                  VirtualUserService:Click2(Vector2.new() 
-             end)
+             
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
