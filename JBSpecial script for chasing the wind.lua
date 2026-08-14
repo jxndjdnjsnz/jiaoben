@@ -1,10 +1,11 @@
 local WasUIPro = loadstring(game:HttpGet("https://github.com/WasKKal/WasUI-For-Roblox/raw/refs/heads/main/WasUIPro.lua"))()
 local VirtualUserService = game:GetService("VirtualUser")
-local Uis = game:GetService("UserInputService")
 game:GetService("Players").LocalPlayer.Idled:Connect(function()
-     VirtualUserService:CaptureMouse()
-     VirtualUserService:Click2(Vector2.new() 
+    VirtualUserService:CaptureMouse()
+    VirtualUserService:Click2(Vector2.new())
+    WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
 end)
+local Uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
 WasUIPro:SetDefaultTheme("Dark")
@@ -46,7 +47,6 @@ task.spawn(function()
         content = "完整控件演示，配置文件自动保存",
         confirmText = "开始体验",
         onConfirm = function()
-             
              WasUIPro:Notify({ Title = "JB", Content = "欢迎使用", Duration = 20 })
              WasUIPro:Notify({ Title = "脚本", Content = "开始使用", Duration = 20 })
              WasUIPro:Notify({ Title = "防挂机", Content = "已开启防挂机", Duration = 20 })
@@ -127,8 +127,10 @@ end
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了RAXPOL", Duration = 2 })
     end
 })
+local advancedTab = mainWindow:Tab({ Title = "其他脚本" })
+local advancedCategory = advancedTab:Category({ Title = "其他脚本", IconName = "sliders-horizontal" })
 
-scriptCategory:Button({
+advancedCategory:Button({
     Text = "Rb脚本",
     Icon = "play",
     Tooltip = "切换Rb脚本",
@@ -137,12 +139,21 @@ scriptCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
-scriptadvancedCategory:Button({
+advancedCategory:Button({
     Text = "BS黑洞中心脚本",
     Icon = "play",
     Tooltip = "切换BS脚本",
     Callback = function()
         loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+})
+advancedCategory:Button({
+    Text = "TX脚本",
+    Icon = "play",
+    Tooltip = "切换TX脚本",
+    Callback = function()
+        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
