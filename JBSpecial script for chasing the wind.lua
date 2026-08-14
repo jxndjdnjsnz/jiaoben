@@ -167,7 +167,7 @@ dynamicCategory:Button({
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
-)}
+})
 dynamicCategory:Button({
     Text = "透视",
     Icon = "play",
@@ -175,7 +175,7 @@ dynamicCategory:Button({
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
     end
-)}
+})
 
 dynamicCategory:Button({
     Text = "自瞄",
@@ -184,7 +184,7 @@ dynamicCategory:Button({
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E4%B8%81%E4%B8%81%20%E6%B1%89%E5%8C%96%E8%87%AA%E7%9E%84.txt"))()
     end
-)}
+})
 basicTab:Paragraph({
     Title = "关于 WasJB",
     Desc = "专门做Twisted X 0.15,作者是jxndjdnjsnz",
