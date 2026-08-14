@@ -156,7 +156,53 @@ advancedCategory:Button({
         loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
         WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
         end
-})
+}) 
+advancedCategory:Button({
+    Text = "VexonHub已汉化",
+    Icon = "play",
+    Tooltip = "切换vexonhub脚本(卡密是VexonHub_3)",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/VexonHub%E6%B1%89%E5%8C%96.txt"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+}) 
+advancedCategory:Button({
+    Text = "剑客破解版",
+    Icon = "play",
+    Tooltip = "切换剑客脚本",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/eksan966/Sword_Guest/refs/heads/main/VIP"))()
+        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
+        end
+}) 
+local dynamicTab = mainWindow:Tab({ Title = "通用" })
+local dynamicCategory = dynamicTab:Category({ Title = "全游戏通用", IconName = "users" })
+
+dynamicCategory:Button({
+    Text = "飞行",
+    Icon = "play",
+    Tooltip = "已开启飞行",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+    end
+)}
+dynamicCategory:Button({
+    Text = "透视",
+    Icon = "play",
+    Tooltip = "已开启透视",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
+    end
+)}
+
+dynamicCategory:Button({
+    Text = "自瞄",
+    Icon = "play",
+    Tooltip = "已开启自瞄",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E4%B8%81%E4%B8%81%20%E6%B1%89%E5%8C%96%E8%87%AA%E7%9E%84.txt"))()
+    end
+)}
 basicTab:Paragraph({
     Title = "关于 WasJB",
     Desc = "专门做Twisted X 0.15,作者是jxndjdnjsnz",
