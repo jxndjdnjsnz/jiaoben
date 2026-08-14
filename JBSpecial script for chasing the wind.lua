@@ -140,24 +140,6 @@ advancedCategory:Button({
         end
 })
 advancedCategory:Button({
-    Text = "BS黑洞中心脚本",
-    Icon = "play",
-    Tooltip = "切换BS脚本",
-    Callback = function()
-        loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
-        end
-})
-advancedCategory:Button({
-    Text = "TX脚本",
-    Icon = "play",
-    Tooltip = "切换TX脚本",
-    Callback = function()
-        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\54\52\68\99\116\76\77\53\47\114\97\119"))()
-        WasUIPro:Notify({ Title = "按钮", Content = "已切换其他脚本", Duration = 2 })
-        end
-}) 
-advancedCategory:Button({
     Text = "VexonHub已汉化",
     Icon = "play",
     Tooltip = "切换vexonhub脚本(卡密是VexonHub_3)",
