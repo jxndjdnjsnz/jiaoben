@@ -56,7 +56,7 @@ task.spawn(function()
 end)
 
 local basicTab = mainWindow:Tab({ Title = "TWISTED" })
-local basicCategory = basicTab:Category({ Title = "召唤车辆", IconName = "layout-grid" })
+local basicCategory = basicTab:Category({ Title = "召唤付费车辆", IconName = "layout-grid" })
 
 basicCategory:Button({
     Text = "召唤TIV2 2009",
@@ -127,6 +127,218 @@ end
         WasUIPro:Notify({ Title = "按钮", Content = "你召唤了RAXPOL", Duration = 2 })
     end
 })
+
+local sliderCategory = basicTab:Category({ Title = "召唤免费车辆", IconName = "activity" })
+
+sliderCategory:Button({
+    Text = "豆豆一",
+    Icon = "car",
+    Tooltip = "召唤豆豆一",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+             "Dominator 1"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "豆豆二",
+    Icon = "car",
+    Tooltip = "召唤豆豆二",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+             "Dominator 2"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "豆豆三",
+    Icon = "car",
+    Tooltip = "召唤豆豆三",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+            "Dominator 3"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "犰狳",
+    Icon = "car",
+    Tooltip = "召唤犰狳",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+          "armadillo"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "TIV1 2003",
+    Icon = "car",
+    Tooltip = "召唤tiv1 2003",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+           "TIV 1 2003"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "TIV1 2009",
+    Icon = "car",
+    Tooltip = "召唤tiv1 2009",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+           "TIV 1 2009"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "TIV 2",
+    Icon = "car",
+    Tooltip = "召唤TIV2",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+           "TIV 2"
+)
+        WasUIPro:Notify({ Title = "召唤", Content = "已召唤免费车辆", Duration = 2 })
+    end
+})
+sliderCategory:Button({
+    Text = "龙卷风攻击",
+    Icon = "car",
+    Tooltip = "召唤龙卷风攻击",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+          "Tornado Attack"
+)
+    end
+})
+sliderCategory:Button({
+    Text = "龙卷风拳击手",
+    Icon = "car",
+    Tooltip = "召唤龙卷风拳击手",
+    Callback = function()
+        local function GetNil(Name, DebugId)
+	for _, Object in getnilinstances() do
+		if Object.Name == Name and Object:GetDebugId() == DebugId then
+			return Object
+		end
+	end
+end
+    local Event = game:GetService("ReplicatedStorage").DeleteCar
+        Event:FireServer(
+        GetNil("PlayersCar", "1_6090979")
+)
+    local Event = game:GetService("ReplicatedStorage").SpawnCar
+        Event:FireServer(
+           "TP"
+)
+    end
+})
 local advancedTab = mainWindow:Tab({ Title = "其他脚本" })
 local advancedCategory = advancedTab:Category({ Title = "其他脚本", IconName = "sliders-horizontal" })
 
@@ -160,31 +372,7 @@ advancedCategory:Button({
 local dynamicTab = mainWindow:Tab({ Title = "通用" })
 local dynamicCategory = dynamicTab:Category({ Title = "全游戏通用", IconName = "users" })
 
-dynamicCategory:Button({
-    Text = "飞行",
-    Icon = "play",
-    Tooltip = "已开启飞行",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
-    end
-})
-dynamicCategory:Button({
-    Text = "透视",
-    Icon = "play",
-    Tooltip = "已开启透视",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZIONPCE/raw/refs/heads/main/ESP.lua"))()
-    end
-})
 
-dynamicCategory:Button({
-    Text = "自瞄",
-    Icon = "play",
-    Tooltip = "已开启自瞄",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E4%B8%81%E4%B8%81%20%E6%B1%89%E5%8C%96%E8%87%AA%E7%9E%84.txt"))()
-    end
-})
 basicTab:Paragraph({
     Title = "关于 WasJB",
     Desc = "专门做Twisted X 0.15,作者是jxndjdnjsnz",
